@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DocuNest — Student Document Manager
 
-## Getting Started
+DocuNest is a student document dashboard built with JavaScript, Next.js, React,
+and Tailwind CSS.
 
-First, run the development server:
+## Requirements
+
+- Node.js 20.9 or newer
+- npm
+
+## Set up and run
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+For a production build, run `npm run build` and then `npm start`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- Browse and remove sample documents organized into categories.
+- Search by document name, category, or file type.
+- Filter by category and file type; clear all filters from the empty state.
+- Upload PDF, DOCX, PPTX, and XLSX files with a custom name and category.
+- Open uploaded files in a new browser tab when the browser supports the format.
+- Use the responsive dashboard on desktop and mobile screens.
 
-To learn more about Next.js, take a look at the following resources:
+Uploads are kept in browser memory only. They are lost when the page is
+refreshed or closed; this MVP does not upload files to a server or save them to
+GitHub.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Screenshots
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![DocuNest desktop dashboard](./public/screenshots/dashboard-desktop.png)
 
-## Deploy on Vercel
+![DocuNest mobile dashboard](./public/screenshots/dashboard-mobile.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+app/
+  globals.css
+  layout.js
+  page.js
+components/
+  dashboard/
+    dashboard.js
+    category-filter.js
+    data.js
+    document-card.js
+    document-context.js
+    icons.js
+    search-bar.js
+public/
+  screenshots/
+    dashboard-desktop.png
+    dashboard-mobile.png
+```
+
+## Checks and presentation
+
+```bash
+npm run lint
+npm run build
+```
+
+For a short demo, show the dashboard at desktop and mobile widths, search for a
+sample document, filter by category and file type, clear filters, then upload,
+open, and remove a supported file.

@@ -1,0 +1,14 @@
+import "./globals.css";
+
+export const metadata = {
+  title: "DocuNest | Student Document Manager",
+  description: "Keep your important student documents organized in one place.",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className="h-full antialiased">
+      <body className="flex min-h-full flex-col">{children}</body>
+    </html>
+  );
+}
